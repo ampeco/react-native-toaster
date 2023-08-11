@@ -67,6 +67,10 @@ class Toaster extends Component {
     const message = this.state.messages[0]
 
     this.setState({ messages: this.state.messages.slice(1) }, () => {
+      if (!message)  {
+        return;
+      }
+
       if (message.onHide) {
         message.onHide()
       }
